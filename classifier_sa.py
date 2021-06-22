@@ -16,9 +16,15 @@ class Classifier:
         self.feature_extract = features_extract
 
     def classification_model():
-        #prob_score1 = #call random forest
+        prob_score1 = #call random forest
         #prob_Score1 = #logistic regression
         #prob_score2 = #decision_tree
+
+        # create a list which stores RV [ 1,0,1]
+        #maximum number of 1 > maaximum of 0 
+         # rv= 1
+         #esle
+         #  rv =0
         
         #take votes
 
