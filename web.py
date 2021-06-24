@@ -1,4 +1,4 @@
-#import urllib3
+import urllib
 import json as m_json
 from urllib.parse import urlparse
 import sys
@@ -10,20 +10,20 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from selenium import webdriver
 
-def getURLForQuery(q):
+def getURLForQuery(self,q):
     # q =[]
     # q = 'abbott' 
     driver = webdriver.Chrome()
     driver.get('https://www.google.com/search?q='+q)
 
-    titl = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//h3')
+    title = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//h3')
     link = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//div[@class ="yuRUbf"]/a').get_attribute('href')
     detail = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//div[@class="VwiC3b yXK7lf MUxGbd yDYNvb lyLwlc"]')
-    driver.close()
-    title = titl.text
+    title = title.text
     url = link
     meta = detail.text
-    return[title.text, url, meta.text]
+    driver.close()
+    return[title, url, meta]
 # def getURLForQuery(q):
 #     URLS = []
 #     for result in q:
