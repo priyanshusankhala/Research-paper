@@ -1,4 +1,4 @@
-import urllib3
+#import urllib3
 import json as m_json
 from urllib.parse import urlparse
 import sys
@@ -8,17 +8,32 @@ from collections import Counter
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+from selenium import webdriver
 
 def getURLForQuery(q):
-    URLS = []
-    for result in q:
-        title = result['title']
-        meta = result['meta']
-        url = result['url']   # was URL in the original and that threw a name error exception
-        URLS.append(url)
-        return title
-        return meta
-        return url
+    # q =[]
+    # q = 'abbott' 
+    driver = webdriver.Chrome()
+    driver.get('https://www.google.com/search?q='+q)
+
+    titl = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//h3')
+    link = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//div[@class ="yuRUbf"]/a').get_attribute('href')
+    detail = driver.find_element_by_xpath('//div[@class="g"]').find_element_by_xpath('.//div[@class="VwiC3b yXK7lf MUxGbd yDYNvb lyLwlc"]')
+    driver.close()
+    title = titl.text
+    url = link
+    meta = detail.text
+    return[title.text, url, meta.text]
+# def getURLForQuery(q):
+#     URLS = []
+#     for result in q:
+#         title = result['title']
+#         meta = result['meta']
+#         url = result['url']   # was URL in the original and that threw a name error exception
+#         URLS.append(url)
+#         return title
+#         return meta
+#         return url
 # def getURLForQuery(q, query2URLS):
 #   #  query = urllib3.urlencode ( { 'q' : q } )
 #    # response = urllib3.urlopen ( 'http://googleapis.com/ajax/services/search/web?v=1.0&' + query ).read()
