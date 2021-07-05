@@ -1,7 +1,11 @@
-1. Can we use a piece of code to fetch top 4 url's along with their title and meta tag insted of using API - Usig API
+1. Can we use a piece of code to fetch top 4 url's along with their title and meta tag insted of using API - Usig API # Done
 2. How can we convert total number of links to external+internal links  - Dropped this feature 
 3. How to extract internal links in a url - Dropped this feature
 4. How to find the length of source code using a python program - Dropped this feature
 5. How to find Ad links and Ad related keywords in a webpage - Dropped this feature 
 6. How to convert results obtained through API into code readable input format - Same as  point
 7. How to search for linkedin links in a url - New feature, need to think about it
+8. Stripe off https:// in lvdn to enhance features
+9. Print probability scores for all values in a search query
+10.Remove unwanted social media links and company other web pages links in a fetching
+11.Model normalization on the basis of composit value of each column 
