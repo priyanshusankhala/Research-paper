@@ -355,6 +355,8 @@ class FeatureCreation:
                 if total_urls_visited > max_urls:
                     break
                 crawl(link, max_urls=max_urls)
+
+        
         
         if __name__ == "__main__":
             arr1 = []
