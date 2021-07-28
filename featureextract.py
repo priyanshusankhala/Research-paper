@@ -1,4 +1,5 @@
 from getlinks import CrawlLinks
+
 import urllib
 import json as m_json
 from urllib import request
@@ -211,6 +212,20 @@ class FeatureCreation:
         numbers.append(num)
         return numbers
         #print(numbers) # Test
+
+    def ratio_we(self, external):
+        no_of_words = self.no_of_words
+        c=[x / y if y else 0 for x, y in zip(no_of_words, external)]  
+        #print(str(c)) # Test
+        return c 
+    
+
+    def ratio_et(self,external):
+        summ = self.summ
+        c=[x / y if y else 0 for x, y in zip(external, summ)]  
+        #print(str(c)) # Test
+        return c 
+    
     
     def feature_extract(self):
         arr= []
@@ -230,9 +245,8 @@ class FeatureCreation:
 
         ext,int = crawl_link.ext_links()
 
-
-        we = self.ratio_we()
-        et = self.ratio_et()
+        we = self.ratio_we(ext)
+        et = self.ratio_et(ext)
 
         #v = [ROP, Title, TN, Meta, MN, LVTN, LVDN, Links, Word, DCNAIH, RatioWL]
         #mapped = zip(ROP, Title, TN, Meta, MN, LVTN, LVDN, Links, Word, DCNAIH, RatioWL)

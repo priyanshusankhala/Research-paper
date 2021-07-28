@@ -59,7 +59,7 @@ class CrawlLinks:
             internal_urls.add(href)
         return urls
 
-    def crawl(url, max_urls=6):
+    def crawl(self,url, max_urls=6):
         global total_urls_visited
         total_urls_visited += 1
         #print(f"{YELLOW}[*] Crawling: {url}{RESET}")
